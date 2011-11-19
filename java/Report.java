@@ -2,12 +2,12 @@ import java.util.*;
 import java.io.*;
 
 public class Report {
-    public static void report(Writer out, List machines, Robot robot)
+    public static void report(Writer out, List<Machine> machines, Robot robot)
             throws IOException 
     {
         out.write("FACTORY REPORT\n");
 
-        Iterator line = machines.iterator();
+        Iterator<Machine> line = machines.iterator();
         while (line.hasNext()) {
             Machine machine = (Machine) line.next();
             out.write("Machine " + machine.name());

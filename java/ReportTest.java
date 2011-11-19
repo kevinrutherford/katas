@@ -1,40 +1,38 @@
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
-import java.io.PrintStream;
 import java.io.StringWriter;
 import java.io.IOException;
 
 public class ReportTest extends TestCase {
-    public ReportTest(String name) {super(name);}
+	public ReportTest(String name) {
+		super(name);
+	}
 
-    public void testReport() throws IOException {
-        ArrayList line = new ArrayList();
-        line.add(new Machine("mixer", "left"));
+	public void testReport() throws IOException {
+		ArrayList<Machine> line = new ArrayList<Machine>();
+		line.add(new Machine("mixer", "left"));
 
-        Machine extruder = new Machine("extruder", "center");
-        extruder.put("paste");
-        line.add(extruder);
+		Machine extruder = new Machine("extruder", "center");
+		extruder.put("paste");
+		line.add(extruder);
 
-        Machine oven = new Machine("oven", "right");
-        oven.put("chips");
-        line.add(oven);
+		Machine oven = new Machine("oven", "right");
+		oven.put("chips");
+		line.add(oven);
 
-        Robot robot = new Robot();
-        robot.moveTo(extruder);
-        robot.pick();
+		Robot robot = new Robot();
+		robot.moveTo(extruder);
+		robot.pick();
 
-        StringWriter out = new StringWriter();
-        Report.report(out, line, robot);
+		StringWriter out = new StringWriter();
+		Report.report(out, line, robot);
 
-        String expected =
-            "FACTORY REPORT\n" +
-            "Machine mixer\nMachine extruder\n" +
-	    "Machine oven bin=chips\n\n" +
-            "Robot location=extruder bin=paste\n" +
-            "========\n";
+		String expected = "FACTORY REPORT\n"
+				+ "Machine mixer\nMachine extruder\n"
+				+ "Machine oven bin=chips\n\n"
+				+ "Robot location=extruder bin=paste\n" + "========\n";
 
-        assertEquals(expected, out.toString());
-    }
+		assertEquals(expected, out.toString());
+	}
 }
-
