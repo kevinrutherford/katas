@@ -36,13 +36,17 @@
       <HintPath>..\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HtmlReport.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="Report.cs" />
+    <Compile Include="Tests\HtmlReportTest.cs" />
     <Compile Include="Tests\ReportTest.cs" />
     <Compile Include="Robot.cs" />
     <Compile Include="Tests\RobotTest.cs" />
