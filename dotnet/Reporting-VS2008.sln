@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportGenerator-CS", "ReportGenerator-CS\ReportGenerator-CS.csproj", "{A544A661-A053-404A-BE68-190687ACDEF7}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ReportGenerator-VB", "ReportGenerator-VB\ReportGenerator-VB.vbproj", "{82BA2937-87D4-4667-9751-B8F071F6736E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A544A661-A053-404A-BE68-190687ACDEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A544A661-A053-404A-BE68-190687ACDEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A544A661-A053-404A-BE68-190687ACDEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A544A661-A053-404A-BE68-190687ACDEF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82BA2937-87D4-4667-9751-B8F071F6736E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82BA2937-87D4-4667-9751-B8F071F6736E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82BA2937-87D4-4667-9751-B8F071F6736E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82BA2937-87D4-4667-9751-B8F071F6736E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
