@@ -23,7 +23,7 @@ Mono:
 1. cd csharp
 2. mkdir bin
 3. cp ../lib/nunit.framework.dll bin/.
-4. gmcs -t:library -r:../lib/nunit.framework.dll -recurse:*.cs -out:bin/ReportGenerator.dll
+4. gmcs -t:library -r:bin/nunit.framework.dll -recurse:*.cs -out:bin/ReportGenerator.dll
 5. nunit-console bin/ReportGenerator.dll 
 6. Refactor code and repeat steps 4 and 5
 

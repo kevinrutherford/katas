@@ -10,31 +10,29 @@ namespace ReportGeneratorCS
             output.Write("<h1>FACTORY REPORT</h1>\n");
 
             IEnumerator<Machine> line = machines.GetEnumerator();
-            output.Write("<ul>\n");
             while (line.MoveNext())
             {
                 Machine machine = line.Current;
-                output.Write("<li>");
-                output.Write("Machine " + machine.Name());
+                output.Write("<h2>" + machine.Name() + "</h2>\n");
+                output.Write("<ul>\n");
+                output.Write("<li>location = " + machine.Location() + "</li>\n");
 
                 if (machine.Bin() != null)
-                    output.Write(" bin=" + machine.Bin());
+                    output.Write("<li>bin containing " + machine.Bin() + "</li>\n");
+                else
+                    output.Write("<li>no bin</li>\n");
 
-                output.Write("</li>\n");
+                output.Write("</ul>\n");
             }
-            output.Write("</ul>\n");
 
-            output.Write("<p>");
-            output.Write("Robot");
+            output.Write("<h2>Robot</h2>\n<ul>\n");
             if (robot.Location() != null)
-                output.Write(" location=" + robot.Location().Name());
+                output.Write("<li>location = " + robot.Location().Name() + "</li>\n");
 
             if (robot.Bin() != null)
-                output.Write(" bin=" + robot.Bin());
+                output.Write("<li>bin containing " + robot.Bin() + "</li>\n");
 
-            output.Write("</p>\n");
-
-            output.Write("<hr>\n");
+            output.Write("</ul>\n");
         }
     }
 }

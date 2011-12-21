@@ -28,9 +28,26 @@ namespace ReportGeneratorCS.Tests
             HtmlReport.report(output, line, robot);
 
             string expected = "<h1>FACTORY REPORT</h1>\n"
-                              + "<ul>\n<li>Machine mixer</li>\n<li>Machine extruder</li>\n"
-                              + "<li>Machine oven bin=chips</li>\n</ul>\n"
-                              + "<p>Robot location=extruder bin=paste</p>\n" + "<hr>\n";
+                              + "<h2>mixer</h2>\n"
+                              + "<ul>\n"
+                              + "<li>location = left</li>\n"
+                              + "<li>no bin</li>\n"
+                              + "</ul>\n"
+                              + "<h2>extruder</h2>\n"
+                              + "<ul>\n"
+                              + "<li>location = center</li>\n"
+                              + "<li>no bin</li>\n"
+                              + "</ul>\n"
+                              + "<h2>oven</h2>\n"
+                              + "<ul>\n"
+                              + "<li>location = right</li>\n"
+                              + "<li>bin containing chips</li>\n"
+                              + "</ul>\n"
+                              + "<h2>Robot</h2>\n"
+                              + "<ul>\n"
+                              + "<li>location = extruder</li>\n"
+                              + "<li>bin containing paste</li>\n"
+                              + "</ul>\n";
 
             Assert.That(expected, Is.EqualTo(output.ToString()));
         }

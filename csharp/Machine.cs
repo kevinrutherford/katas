@@ -24,6 +24,11 @@ namespace ReportGeneratorCS
             return bin;
         }
 
+        public string Location()
+        {
+            return location;
+        }
+
         public void Put(string bin)
         {
             this.bin = bin;
