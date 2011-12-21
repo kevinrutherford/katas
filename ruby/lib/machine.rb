@@ -1,5 +1,5 @@
 class Machine
-  attr_reader :name, :bin
+  attr_reader :name, :bin, :location
 
   def initialize(name, location)
     @name = name

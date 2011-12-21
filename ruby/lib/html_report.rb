@@ -1,22 +1,24 @@
 class HtmlReport
   def HtmlReport.report(out, machines, robot)
     out.print("<h1>FACTORY REPORT</h1>\n")
-    out.print("<ul>\n")
     machines.each do |machine|
-      out.print("<li>")
-      out.print "Machine #{machine.name}"
-      out.print " bin=#{machine.bin}" if machine.bin != nil
-      out.print("</li>\n")
+      out.print "<h2>#{machine.name}</h2>\n"
+      out.print("<ul>\n")
+      out.print("<li>location = #{machine.location}</li>\n")
+      if machine.bin != nil
+        out.print("<li>bin containing #{machine.bin}</li>\n")
+      else
+        out.print("<li>no bin</li>\n")
+      end
+      out.print("</ul>\n")
     end
-    out.print("</ul>\n")
-    out.print("<p>")
-    out.print "Robot"
+    out.print "<h2>Robot</h2>\n"
+    out.print("<ul>\n")
     if robot.location != nil
-      out.print " location=#{robot.location.name}"
+      out.print "<li>location = #{robot.location.name}</li>\n"
     end
-    out.print " bin=#{robot.bin}" if robot.bin != nil
-    out.print("</p>\n")
-    out.print("<hr>\n")
+    out.print "<li>bin containing #{robot.bin}</li>\n" if robot.bin != nil
+    out.print("</ul>\n")
   end
 end
 

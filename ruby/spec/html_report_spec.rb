@@ -25,13 +25,26 @@ describe HtmlReport do
 
     expected = <<END_OF_EXPECTED
 <h1>FACTORY REPORT</h1>
+<h2>mixer</h2>
 <ul>
-<li>Machine mixer</li>
-<li>Machine extruder</li>
-<li>Machine oven bin=chips</li>
+<li>location = left</li>
+<li>no bin</li>
 </ul>
-<p>Robot location=extruder bin=paste</p>
-<hr>
+<h2>extruder</h2>
+<ul>
+<li>location = center</li>
+<li>no bin</li>
+</ul>
+<h2>oven</h2>
+<ul>
+<li>location = right</li>
+<li>bin containing chips</li>
+</ul>
+<h2>Robot</h2>
+<ul>
+<li>location = extruder</li>
+<li>bin containing paste</li>
+</ul>
 END_OF_EXPECTED
     out.string.should == expected
   end
