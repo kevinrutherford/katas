@@ -37,14 +37,14 @@ public class AcceptanceTest {
 		File f = new File(EMPLOYEE_DATA_FILE);
 		if (f.canRead()) return;
 		PrintWriter writer = new PrintWriter(f, "UTF-8");
-		writer.println("last_name, first_name, date_of_birth, email");
-		writer.println("Doe, John, 1982/10/08, john.doe@foobar.com");
-		writer.println("Ann, Mary, 1975/03/11, mary.ann@foobar.com");
+		writer.println("last_name, first_name, date_of_birth, email, anniversary");
+		writer.println("Doe, John, 1982/10/08, john.doe@foobar.com, 2009/07/01");
+		writer.println("Ann, Mary, 1975/03/11, mary.ann@foobar.com, 2009/08/01");
 		writer.close();
 	}
 
 	@Test
-	public void baseScenario() throws Exception {
+	public void sendsMessageForBirthdays() throws Exception {
 		service.sendGreetings(EMPLOYEE_DATA_FILE, new OurDate("2008/10/08"), "localhost", SMTP_PORT);
 		
 		assertEquals("message not sent?", 1, messagesSent.size());
@@ -60,5 +60,17 @@ public class AcceptanceTest {
 		service.sendGreetings(EMPLOYEE_DATA_FILE, new OurDate("2008/01/01"), "localhost", SMTP_PORT);
 		
 		assertEquals("what? messages?", 0, messagesSent.size());
+	}
+
+	@Test
+	public void sendsMessageForAnniversary() throws Exception {
+		service.sendGreetings(EMPLOYEE_DATA_FILE, new OurDate("2012/08/01"), "localhost", SMTP_PORT);
+
+		assertEquals("message not sent?", 1, messagesSent.size());
+		Message message = messagesSent.get(0);
+		assertEquals("Happy Anniversary, dear Mary!", message.getContent());
+		assertEquals("Happy Anniversary!", message.getSubject());
+		assertEquals(1, message.getAllRecipients().length);
+		assertEquals("mary.ann@foobar.com", message.getAllRecipients()[0].toString());
 	}
 }
