@@ -1,4 +1,4 @@
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,43 +20,43 @@ public class GivenAConjuredItem {
 	@Test
 	public void beforeSellDate() {
 		Item item = updateFrom(5, 10);
-		assertTrue(item.quality == 8);
-		assertTrue(item.sellIn == 4);
+		assertEquals(8, item.quality);
+		assertEquals(4, item.sellIn);
 	}
 
 	@Test
 	public void beforeSellDateAtZeroQuality() {
 		Item item = updateFrom(5, 0);
-		assertTrue(item.quality == 0);
-		assertTrue(item.sellIn == 4);
+		assertEquals(0, item.quality);
+		assertEquals(4, item.sellIn);
 	}
 
 	@Test
 	public void onSellDate() {
 		Item item = updateFrom(0, 10);
-		assertTrue(item.quality == 6);
-		assertTrue(item.sellIn == -1);
+		assertEquals(6, item.quality);
+		assertEquals(-1, item.sellIn);
 	}
 
 	@Test
 	public void onSellDateAtZeroQuality() {
 		Item item = updateFrom(0, 0);
-		assertTrue(item.quality == 0);
-		assertTrue(item.sellIn == -1);
+		assertEquals(0, item.quality);
+		assertEquals(-1, item.sellIn);
 	}
 
 	@Test
 	public void afterSellDate() {
 		Item item = updateFrom(-10, 10);
-		assertTrue(item.quality == 6);
-		assertTrue(item.sellIn == -11);
+		assertEquals(6, item.quality);
+		assertEquals(-11, item.sellIn);
 	}
 
 	@Test
 	public void afterSellDateAtZeroQuality() {
 		Item item = updateFrom(-10, 0);
-		assertTrue(item.quality == 0);
-		assertTrue(item.sellIn == -11);
+		assertEquals(0, item.quality);
+		assertEquals(-11, item.sellIn);
 	}
 
 }
