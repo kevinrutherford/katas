@@ -1,9 +1,12 @@
 package coffee_shop;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CoffeeShop {
 	private Kitchen kitchen = new Kitchen(this);
 	private final Menu menu = new Menu(this);
-	private CoffeeShopListener listener;
+	private List<CoffeeShopListener> listeners = new ArrayList<CoffeeShopListener>();
 
 	public void takeOrder(String flavourName, int table) {
 		CoffeeFlavour flavour = menu.lookup(flavourName);
@@ -15,16 +18,16 @@ public class CoffeeShop {
 	}
 
 	public void addListener(CoffeeShopListener listener) {
-		this.listener = listener;
+		listeners.add(listener);
 	}
 
 	void newCoffeeFlavourMade(String flavourName) {
-		if (listener != null)
+		for (CoffeeShopListener listener : listeners)
 			listener.newCoffeeFlavourMade(flavourName);
 	}
 
 	void orderServed(int tableNumber, String flavourName) {
-		if (listener != null)
+		for (CoffeeShopListener listener : listeners)
 			listener.orderServed(tableNumber, flavourName);
 	}
 }
