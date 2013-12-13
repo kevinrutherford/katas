@@ -1,22 +1,17 @@
 package coffee_shop;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CoffeeShop {
-	private final List<Order> orders = new ArrayList<Order>();
+	private Kitchen kitchen = new Kitchen();
 	private final Menu menu = new Menu();
 	private CoffeeShopListener listener;
 
 	public void takeOrder(String flavourName, int table) {
 		CoffeeFlavour flavour = menu.lookup(flavourName, listener);
-		Order order = new Order(table, flavour);
-		orders.add(order);
+		kitchen.takeOrder(table, flavour);
 	}
 	
 	public void service() {
-		for (Order order : orders)
-			order.serve(listener);
+		kitchen.service(listener);
 	}
 
 	public int numberOfFlavoursMade() {
