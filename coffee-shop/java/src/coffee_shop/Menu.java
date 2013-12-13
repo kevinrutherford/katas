@@ -7,9 +7,12 @@ import java.util.Map;
 class Menu {
 	private Map<String, CoffeeFlavour> flavours = new HashMap<String, CoffeeFlavour>();
 
-	CoffeeFlavour lookup(String flavorName) {
-		if (!flavours.containsKey(flavorName))
+	CoffeeFlavour lookup(String flavorName, CoffeeShopListener listener) {
+		if (!flavours.containsKey(flavorName)) {
 			flavours.put(flavorName, new CoffeeFlavour(flavorName));
+			if (listener != null)
+				listener.newCoffeeFlavourMade(flavorName);
+		}
 		return flavours.get(flavorName);
 	}
 

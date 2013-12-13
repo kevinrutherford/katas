@@ -9,7 +9,7 @@ public class CoffeeShop {
 	private CoffeeShopListener listener;
 
 	public void takeOrder(String flavourName, int table) {
-		CoffeeFlavour flavour = menu.lookup(flavourName);
+		CoffeeFlavour flavour = menu.lookup(flavourName, listener);
 		Order order = new Order(table, flavour);
 		orders.add(order);
 	}
