@@ -17,11 +17,6 @@ public class CoffeeShop {
 		for (Order order : orders)
 			order.serve();		
 	}
-	
-	public String report() {
-		return "\ntotal CoffeeFlavour objects made: "
-				+ menu.totalCoffeeFlavoursMade();
-	}
 
 	public int numberOfFlavoursMade() {
 		return menu.totalCoffeeFlavoursMade();

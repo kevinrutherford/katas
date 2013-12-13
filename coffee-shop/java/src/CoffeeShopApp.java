@@ -19,7 +19,7 @@ class CoffeeShopApp {
 		shop.takeOrder("Espresso", 121);
 
 		shop.service();
-		System.out.println(shop.report());
+		System.out.println("\ntotal CoffeeFlavour objects made: "
+				+ shop.numberOfFlavoursMade());
 	}
-	
 }
