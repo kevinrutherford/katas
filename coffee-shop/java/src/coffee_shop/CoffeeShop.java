@@ -14,10 +14,6 @@ public class CoffeeShop {
 		kitchen.service(listener);
 	}
 
-	public int numberOfFlavoursMade() {
-		return menu.totalCoffeeFlavoursMade();
-	}
-
 	public void addListener(CoffeeShopListener listener) {
 		this.listener = listener;
 	}

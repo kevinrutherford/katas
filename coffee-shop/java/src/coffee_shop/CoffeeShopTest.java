@@ -3,27 +3,25 @@ package coffee_shop;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class CoffeeShopTest {
+public class CoffeeShopTest implements CoffeeShopListener {
+
+	private int flavoursMade = 0;
 
 	@Test
-	public void onlyThreeCoffeeFlavoursAreMade() {
+	public void coffeeFlavoursAreReused() {
 		CoffeeShop shop = new CoffeeShop();
-
+		shop.addListener(this);
 		shop.takeOrder("Cappuccino", 2);
-		shop.takeOrder("Frappe", 1);
-		shop.takeOrder("Espresso", 1);
-		shop.takeOrder("Frappe", 897);
 		shop.takeOrder("Cappuccino", 97);
-		shop.takeOrder("Frappe", 3);
-		shop.takeOrder("Espresso", 3);
-		shop.takeOrder("Cappuccino", 3);
-		shop.takeOrder("Espresso", 96);
-		shop.takeOrder("Frappe", 552);
-		shop.takeOrder("Cappuccino", 121);
-		shop.takeOrder("Espresso", 121);
+		assertEquals(1, flavoursMade);
+	}
 
-		shop.service();
-		assertEquals(3, shop.numberOfFlavoursMade());
+	@Override
+	public void orderServed(int tableNumber, String flavour) { }
+
+	@Override
+	public void newCoffeeFlavourMade(String flavorName) {
+		flavoursMade++;
 	}
 
 }
