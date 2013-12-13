@@ -1,3 +1,4 @@
+import coffee_shop.CoffeeShop;
 
 class CoffeeShopApp {
 

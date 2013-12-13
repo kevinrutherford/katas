@@ -1,7 +1,7 @@
+package coffee_shop;
+
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 
 public class CoffeeShopTest {
 
