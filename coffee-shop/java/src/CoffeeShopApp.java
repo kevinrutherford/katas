@@ -4,6 +4,8 @@ class CoffeeShopApp {
 
 	public static void main(String[] args) {
 		CoffeeShop shop = new CoffeeShop();
+		ShopReport report = new ShopReport();
+		shop.addListener(report);
 
 		shop.takeOrder("Cappuccino", 2);
 		shop.takeOrder("Frappe", 1);

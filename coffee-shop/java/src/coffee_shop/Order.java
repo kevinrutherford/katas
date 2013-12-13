@@ -9,7 +9,8 @@ class Order {
 		this.flavour = flavor;
 	}
 
-	void serve() {
-		System.out.println("Serving " + flavour + " to table " + tableNumber);
+	void serve(CoffeeShopListener listener) {
+		if (listener != null)
+			listener.orderServed(tableNumber, flavour.toString());
 	}
 }
