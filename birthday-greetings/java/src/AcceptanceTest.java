@@ -62,15 +62,4 @@ public class AcceptanceTest {
 		assertEquals("what? messages?", 0, messagesSent.size());
 	}
 
-	@Test
-	public void sendsMessageForAnniversary() throws Exception {
-		service.sendGreetings(EMPLOYEE_DATA_FILE, new OurDate("2012/08/01"), "localhost", SMTP_PORT);
-
-		assertEquals("message not sent?", 1, messagesSent.size());
-		Message message = messagesSent.get(0);
-		assertEquals("Happy Anniversary, dear Mary!", message.getContent());
-		assertEquals("Happy Anniversary!", message.getSubject());
-		assertEquals(1, message.getAllRecipients().length);
-		assertEquals("mary.ann@foobar.com", message.getAllRecipients()[0].toString());
-	}
 }
