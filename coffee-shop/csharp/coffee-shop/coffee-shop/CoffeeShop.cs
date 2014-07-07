@@ -3,12 +3,11 @@ using System.Collections.Generic;
 
 namespace coffeeshop
 {
-	// Flyweight object interface
 	interface CoffeeOrder
 	{
 		void serveCoffee (CoffeeOrderContext context);
 	}
-	// ConcreteFlyweight object that creates ConcreteFlyweight 
+
 	class CoffeeFlavor : CoffeeOrder
 	{
 		private string flavor;
@@ -43,7 +42,7 @@ namespace coffeeshop
 			return this.tableNumber;
 		}
 	}
-	//FlyweightFactory object
+
 	class CoffeeFlavorFactory
 	{
 		private Dictionary<string, CoffeeFlavor> flavors = new Dictionary<String, CoffeeFlavor> ();
@@ -65,9 +64,7 @@ namespace coffeeshop
 
 	class CoffeeShop
 	{
-		/** The flavors ordered. */
 		private static CoffeeFlavor[] flavors = new CoffeeFlavor[100];
-		/** The tables for the orders. */
 		private static CoffeeOrderContext[] tables = new CoffeeOrderContext[100];
 		private static int ordersMade = 0;
 		private static CoffeeFlavorFactory flavorFactory;
