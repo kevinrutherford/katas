@@ -50,11 +50,10 @@ namespace coffeeshop
 
 		public CoffeeFlavor getCoffeeFlavor (String flavorName)
 		{
-			CoffeeFlavor flavor = flavors [flavorName];
-			if (flavor == null) {
-				flavor = new CoffeeFlavor (flavorName);
-				flavors.Add (flavorName, flavor);
-			}
+			if (flavors.ContainsKey (flavorName))
+				return flavors [flavorName];
+			var flavor = new CoffeeFlavor (flavorName);
+			flavors.Add (flavorName, flavor);
 			return flavor;
 		}
 
@@ -99,7 +98,7 @@ namespace coffeeshop
 			takeOrders ("Cappuccino", 121);
 			takeOrders ("Espresso", 121);
 
-			for (int i = 0; i < ordersMade; ++i) {
+			for (var i = 0; i < ordersMade; ++i) {
 				flavors [i].serveCoffee (tables [i]);
 			}
 			Console.WriteLine (" ");
