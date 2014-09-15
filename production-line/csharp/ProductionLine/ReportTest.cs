@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using NUnit.Framework;
 
-namespace ReportGeneratorCS.Tests
+namespace ProductionLine
 {
     [TestFixture]
     public class ReportTest

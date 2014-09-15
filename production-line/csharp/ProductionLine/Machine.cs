@@ -1,4 +1,4 @@
-namespace ReportGeneratorCS
+namespace ProductionLine
 {
     public class Machine
     {
