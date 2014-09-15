@@ -3,7 +3,7 @@ namespace ProductionLine
     public class Machine
     {
         private string name;
-        private string bin;
+        private Bin bin;
         private string location;
 
         public Machine(string name, string location)
@@ -12,14 +12,14 @@ namespace ProductionLine
             this.location = location;
         }
 
-        public string Take()
+        public Bin Take()
         {
-            string result = bin;
+            var result = bin;
             bin = null;
             return result;
         }
 
-        public string Bin()
+        public Bin Bin()
         {
             return bin;
         }
@@ -29,7 +29,7 @@ namespace ProductionLine
             return location;
         }
 
-        public void Put(string bin)
+        public void Put(Bin bin)
         {
             this.bin = bin;
         }

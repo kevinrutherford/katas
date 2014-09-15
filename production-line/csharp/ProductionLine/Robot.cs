@@ -2,7 +2,7 @@ namespace ProductionLine
 {
     public class Robot
     {
-        private string bin;
+        private Bin bin;
         private Machine location;
 
         public Machine Location()
@@ -20,7 +20,7 @@ namespace ProductionLine
             bin = location.Take();
         }
 
-        public string Bin()
+        public Bin Bin()
         {
             return bin;
         }

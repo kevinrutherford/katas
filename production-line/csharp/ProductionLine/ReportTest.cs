@@ -14,10 +14,10 @@ namespace ProductionLine
 			p.AddMachine("mixer", "left");
 
             Machine extruder = p.AddMachine("extruder", "center");
-            extruder.Put("paste");
+            extruder.Put(new Bin("paste"));
 
             Machine oven = p.AddMachine("oven", "right");
-            oven.Put("chips");
+            oven.Put(new Bin("chips"));
 
             Robot robot = new Robot();
             robot.MoveTo(extruder);

@@ -27,14 +27,14 @@ namespace ProductionLine
 
 		void ReporMachines (StringBuilder result)
 		{
-			_line.EachMachine (machine => ReportMachine(machine, result));
+			_line.EachMachine (m => ReportMachine(m, result));
 		}
 
 		private void ReportMachine (Machine machine, StringBuilder result)
 		{
 			result.Append ("Machine " + machine.Name ());
 			if (machine.Bin () != null)
-				result.Append (" bin=" + machine.Bin ());
+				result.Append (" bin=" + machine.Bin().Contents());
 			result.Append ("\n");
 		}
 
@@ -44,7 +44,7 @@ namespace ProductionLine
 			if (_robot.Location () != null)
 				result.Append (" location=" + _robot.Location ().Name ());
 			if (_robot.Bin () != null)
-				result.Append (" bin=" + _robot.Bin ());
+				result.Append (" bin=" + _robot.Bin().Contents());
 			result.Append ("\n");
 		}
     }
