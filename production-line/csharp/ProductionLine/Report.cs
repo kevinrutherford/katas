@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace ProductionLine
 {
@@ -7,33 +8,37 @@ namespace ProductionLine
     {
 		private IList<Machine> _machines;
 		private Robot _robot;
+		private ProductionLine _line;
 
-		internal Report(IList<Machine> machines, Robot robot)
+		internal Report(IList<Machine> machines, ProductionLine line, Robot robot)
 		{
 			_machines = machines;
+			_line = line;
 			_robot = robot;
 		}
 
-		internal void reportTo(StringWriter output)
+		internal string reportTo()
 		{
-			output.Write("FACTORY REPORT\n");
+			var result = new StringBuilder();
+			result.Append("FACTORY REPORT\n");
 			IEnumerator<Machine> line = _machines.GetEnumerator();
 			while (line.MoveNext())
 			{
 				Machine machine = line.Current;
-				output.Write("Machine " + machine.Name());
+				result.Append("Machine " + machine.Name());
 				if (machine.Bin() != null)
-					output.Write(" bin=" + machine.Bin());
-				output.Write("\n");
+					result.Append(" bin=" + machine.Bin());
+				result.Append("\n");
 			}
-			output.Write("\n");
-			output.Write("Robot");
+			result.Append("\n");
+			result.Append("Robot");
 			if (_robot.Location() != null)
-				output.Write(" location=" + _robot.Location().Name());
+				result.Append(" location=" + _robot.Location().Name());
 			if (_robot.Bin() != null)
-				output.Write(" bin=" + _robot.Bin());
-			output.Write("\n");
-			output.Write("========\n");
+				result.Append(" bin=" + _robot.Bin());
+			result.Append("\n");
+			result.Append("========\n");
+			return result.ToString ();
 		}
     }
 }

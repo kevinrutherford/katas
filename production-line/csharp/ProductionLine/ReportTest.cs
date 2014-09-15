@@ -11,6 +11,8 @@ namespace ProductionLine
         public void TestReport()
         {
             IList<Machine> line = new List<Machine>();
+			var p = new ProductionLine();
+			p.AddMachine("mixer", "left");
             line.Add(new Machine("mixer", "left"));
 
             Machine extruder = new Machine("extruder", "center");
@@ -25,15 +27,14 @@ namespace ProductionLine
             robot.MoveTo(extruder);
             robot.Pick();
 
-            StringWriter output = new StringWriter();
-            new Report(line, robot).reportTo(output);
+            var output = new Report(line, p, robot).reportTo();
 
             string expected = "FACTORY REPORT\n"
                               + "Machine mixer\nMachine extruder\n"
                               + "Machine oven bin=chips\n\n"
                               + "Robot location=extruder bin=paste\n" + "========\n";
 
-            Assert.That(expected, Is.EqualTo(output.ToString()));
+            Assert.That(expected, Is.EqualTo(output));
         }
     }
 }
