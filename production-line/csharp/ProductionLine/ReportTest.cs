@@ -26,7 +26,7 @@ namespace ProductionLine
             robot.Pick();
 
             StringWriter output = new StringWriter();
-            Report.report(output, line, robot);
+            new Report(line, robot).reportTo(output);
 
             string expected = "FACTORY REPORT\n"
                               + "Machine mixer\nMachine extruder\n"

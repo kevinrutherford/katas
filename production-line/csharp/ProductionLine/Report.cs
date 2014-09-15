@@ -3,35 +3,37 @@ using System.IO;
 
 namespace ProductionLine
 {
-    public class Report
+    class Report
     {
-        public static void report(StringWriter output, IList<Machine> machines, Robot robot)
-        {
-            output.Write("FACTORY REPORT\n");
+		private IList<Machine> _machines;
+		private Robot _robot;
 
-            IEnumerator<Machine> line = machines.GetEnumerator();
-            while (line.MoveNext())
-            {
-                Machine machine = line.Current;
-                output.Write("Machine " + machine.Name());
+		internal Report(IList<Machine> machines, Robot robot)
+		{
+			_machines = machines;
+			_robot = robot;
+		}
 
-                if (machine.Bin() != null)
-                    output.Write(" bin=" + machine.Bin());
-
-                output.Write("\n");
-            }
-            output.Write("\n");
-
-            output.Write("Robot");
-            if (robot.Location() != null)
-                output.Write(" location=" + robot.Location().Name());
-
-            if (robot.Bin() != null)
-                output.Write(" bin=" + robot.Bin());
-
-            output.Write("\n");
-
-            output.Write("========\n");
-        }
+		internal void reportTo(StringWriter output)
+		{
+			output.Write("FACTORY REPORT\n");
+			IEnumerator<Machine> line = _machines.GetEnumerator();
+			while (line.MoveNext())
+			{
+				Machine machine = line.Current;
+				output.Write("Machine " + machine.Name());
+				if (machine.Bin() != null)
+					output.Write(" bin=" + machine.Bin());
+				output.Write("\n");
+			}
+			output.Write("\n");
+			output.Write("Robot");
+			if (_robot.Location() != null)
+				output.Write(" location=" + _robot.Location().Name());
+			if (_robot.Bin() != null)
+				output.Write(" bin=" + _robot.Bin());
+			output.Write("\n");
+			output.Write("========\n");
+		}
     }
 }
