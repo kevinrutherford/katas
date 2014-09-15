@@ -17,6 +17,12 @@ namespace ProductionLine
 			_machines.Add (machine);
 			return machine;
 		}
+
+		public void EachMachine (Action<Machine> f)
+		{
+			foreach (var machine in _machines)
+				f (machine);
+		}
 	}
 }
 

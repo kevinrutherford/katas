@@ -10,24 +10,20 @@ namespace ProductionLine
         [Test]
         public void TestReport()
         {
-            IList<Machine> line = new List<Machine>();
 			var p = new ProductionLine();
 			p.AddMachine("mixer", "left");
-            line.Add(new Machine("mixer", "left"));
 
-            Machine extruder = new Machine("extruder", "center");
+            Machine extruder = p.AddMachine("extruder", "center");
             extruder.Put("paste");
-            line.Add(extruder);
 
-            Machine oven = new Machine("oven", "right");
+            Machine oven = p.AddMachine("oven", "right");
             oven.Put("chips");
-            line.Add(oven);
 
             Robot robot = new Robot();
             robot.MoveTo(extruder);
             robot.Pick();
 
-            var output = new Report(line, p, robot).reportTo();
+            var output = new Report(p, robot).report();
 
             string expected = "FACTORY REPORT\n"
                               + "Machine mixer\nMachine extruder\n"
