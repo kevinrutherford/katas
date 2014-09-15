@@ -1,34 +1,34 @@
 namespace ProductionLine
 {
-    public class Robot
+    class Robot
     {
-        private Bin bin;
-        private Machine location;
+        private Bin _bin;
+        private Machine _location;
 
-        public Machine Location()
+        internal Machine Location()
         {
-            return location;
+            return _location;
         }
 
-        public void MoveTo(Machine location)
+		internal void MoveTo(Machine location)
         {
-            this.location = location;
+            this._location = location;
         }
 
-        public void Pick()
+		internal void Pick()
         {
-            bin = location.Take();
+            _bin = _location.Take();
         }
 
-        public Bin Bin()
+		internal Bin Bin()
         {
-            return bin;
+            return _bin;
         }
 
-        public void Release()
+		internal void Release()
         {
-            location.Put(bin);
-            bin = null;
+            _location.Put(_bin);
+            _bin = null;
         }
     }
 }

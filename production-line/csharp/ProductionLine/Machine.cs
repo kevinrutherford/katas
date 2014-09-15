@@ -1,42 +1,42 @@
 namespace ProductionLine
 {
-    public class Machine
+    class Machine
     {
-        private string name;
-        private Bin bin;
-        private string location;
+        private string _name;
+        private Bin _bin;
+        private string _location;
 
-        public Machine(string name, string location)
+        internal Machine(string name, string location)
         {
-            this.name = name;
-            this.location = location;
+            this._name = name;
+            this._location = location;
         }
 
-        public Bin Take()
+		internal Bin Take()
         {
-            var result = bin;
-            bin = null;
+            var result = _bin;
+            _bin = null;
             return result;
         }
 
-        public Bin Bin()
+		internal Bin Bin()
         {
-            return bin;
+            return _bin;
         }
 
-        public string Location()
+		internal string Location()
         {
-            return location;
+            return _location;
         }
 
-        public void Put(Bin bin)
+		internal void Put(Bin bin)
         {
-            this.bin = bin;
+            this._bin = bin;
         }
 
-        public string Name()
+		internal string Name()
         {
-            return name;
+            return _name;
         }
     }
 }
