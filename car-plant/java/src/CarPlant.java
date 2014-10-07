@@ -1,5 +1,9 @@
 public class CarPlant {
 	public static String LOG;
+
+	public static Car makeToyotaCorolla() {
+		return new ToyotaCorolla();
+	}
 }
 
 // Finally, the customer comes along and asks us to model for them a new
