@@ -1,5 +1,5 @@
 class MitsubishiTriton extends AllWheelDriveCar {
-	public String Manufacturer() {
-		return "Mitsubishi";
+	public String name() {
+		return "Mitsubishi Triton";
 	}
 }

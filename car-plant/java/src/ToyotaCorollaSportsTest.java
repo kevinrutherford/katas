@@ -15,6 +15,12 @@ public class ToyotaCorollaSportsTest {
 	}
 
 	@Test
+	public void hasTheCorrectName() {
+		corolla.turnLeft(27);
+		assertEquals("Toyota Corolla sports", corolla.name());
+	}
+
+	@Test
 	public void turningLeftOnlyTurnsTheFrontWheels() {
 		corolla.turnLeft(27);
 		assertEquals("front left turning left 27 degrees\n"

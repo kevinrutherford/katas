@@ -1,5 +1,5 @@
 class ToyotaCorolla extends FrontWheelDriveCar {
-	public String Manufacturer() {
-		return "Toyota";
+	public String name() {
+		return "Toyota Corolla";
 	}
 }
