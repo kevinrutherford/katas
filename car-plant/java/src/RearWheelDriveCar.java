@@ -1,5 +1,5 @@
 abstract class RearWheelDriveCar extends Car {
-	public void Accelerate(int kph) {
+	public void accelerate(int kph) {
 		_rearLeft.rotate(kph);
 		_rearRight.rotate(kph);
 	}

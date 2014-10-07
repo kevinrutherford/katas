@@ -4,6 +4,10 @@ public class CarPlant {
 	public static Car makeToyotaCorolla() {
 		return new ToyotaCorolla();
 	}
+
+	public static Car makeToyotaCorollaSports() {
+		return new ToyotaCorollaSports();
+	}
 }
 
 // Finally, the customer comes along and asks us to model for them a new

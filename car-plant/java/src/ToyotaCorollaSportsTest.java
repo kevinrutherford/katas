@@ -1,16 +1,17 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class ToyotaCorollaTest {
+
+public class ToyotaCorollaSportsTest {
 
 	private Car corolla;
 
 	@Before
 	public void setUp() throws Exception {
 		CarPlant.LOG = "";
-		corolla = CarPlant.makeToyotaCorolla();
+		corolla = CarPlant.makeToyotaCorollaSports();
 	}
 
 	@Test
@@ -28,10 +29,10 @@ public class ToyotaCorollaTest {
 	}
 
 	@Test
-	public void acceleratingOnlyTurnsTheFrontWheels() {
+	public void acceleratingOnlyTurnsTheRearWheels() {
 		corolla.accelerate(35);
-		assertEquals("front left accelerating 35 kph\n"
-				   + "front right accelerating 35 kph\n", CarPlant.LOG);
+		assertEquals("rear left accelerating 35 kph\n"
+				   + "rear right accelerating 35 kph\n", CarPlant.LOG);
 	}
 
 }

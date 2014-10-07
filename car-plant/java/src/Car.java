@@ -15,9 +15,4 @@ abstract class Car extends BaseCar {
 		_frontLeft.turnRight(degrees);
 		_frontRight.turnRight(degrees);
 	}
-
-	public void accelerate(int kph) {
-		_frontLeft.rotate(kph);
-		_frontRight.rotate(kph);
-	}
 }
