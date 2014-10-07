@@ -1,5 +1,5 @@
 
-class MitsubishiTitan extends AllWheelDriveCar
+class MitsubishiTriton extends AllWheelDriveCar
 {
   public String Manufacturer()
   {

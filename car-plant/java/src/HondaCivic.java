@@ -1,5 +1,5 @@
 
-class ToyotaCorolla extends FrontWheelDriveCar
+class HondaCivic extends FrontWheelDriveCar
 {
   public String Manufacturer() {
     return "Toyota";
