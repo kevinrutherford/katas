@@ -27,4 +27,11 @@ public class ToyotaCorollaTest {
 								 + "front right turning right 15 degrees\n");
 	}
 
+	@Test
+	public void acceleratingOnlyTurnsTheFrontWheels() {
+		corolla.accelerate(35);
+		assertEquals(CarPlant.LOG, "front left accelerating 35 kph\n"
+								 + "front right accelerating 35 kph\n");
+	}
+
 }

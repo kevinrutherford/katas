@@ -16,8 +16,7 @@ public class Wheel {
 	}
 
 	public void rotate(int kph) {
-		// TODO Auto-generated method stub
-		
+		CarPlant.LOG += name + " accelerating " + kph + " kph\n";
 	}
 
 }
