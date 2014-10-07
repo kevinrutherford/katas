@@ -1,9 +1,6 @@
-
-abstract class FrontWheelDriveCar extends Car
-{
-  public void Accelerate(double kph)
-  {
-    _frontLeft.Rotate(kph);
-    _frontRight.Rotate(kph);
-  }
+abstract class FrontWheelDriveCar extends Car {
+	public void Accelerate(int kph) {
+		_frontLeft.rotate(kph);
+		_frontRight.rotate(kph);
+	}
 }

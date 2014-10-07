@@ -1,17 +1,21 @@
 
 public class Wheel {
 
-	public void TurnLeft(double degrees) {
-		// TODO Auto-generated method stub
-		
+	private String name;
+
+	public Wheel(String name) {
+		this.name = name;
 	}
 
-	public void TurnRight(double degrees) {
-		// TODO Auto-generated method stub
-		
+	public void turnLeft(int degrees) {
+		CarPlant.LOG += name + " turning left " + degrees + " degrees\n";
 	}
 
-	public void Rotate(double kph) {
+	public void turnRight(int degrees) {
+		CarPlant.LOG += name + " turning right " + degrees + " degrees\n";
+	}
+
+	public void rotate(int kph) {
 		// TODO Auto-generated method stub
 		
 	}

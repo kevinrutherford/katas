@@ -1,9 +1,6 @@
-
-class HondaCivicSports extends RearWheelDriveCar
-{
-  public void Accelerate(double kph)
-  {
-     _rearLeft.Rotate(kph);
-     _rearRight.Rotate(kph);
-  }
+class HondaCivicSports extends RearWheelDriveCar {
+	public void Accelerate(int kph) {
+		_rearLeft.rotate(kph);
+		_rearRight.rotate(kph);
+	}
 }

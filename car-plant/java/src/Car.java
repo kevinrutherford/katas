@@ -1,28 +1,23 @@
+abstract class Car extends BaseCar {
+	protected Car() {
+		_frontLeft = new Wheel("front left");
+		_frontRight = new Wheel("front right");
+		_rearLeft = new Wheel("rear left");
+		_rearRight = new Wheel("rear right");
+	}
 
-abstract class Car extends BaseCar
-{
-  protected Car() {
-    _frontLeft = new Wheel();
-    _frontRight = new Wheel();
-    _rearLeft = new Wheel();
-    _rearRight = new Wheel();
-  }
+	public void turnLeft(int degrees) {
+		_frontLeft.turnLeft(degrees);
+		_frontRight.turnLeft(degrees);
+	}
 
-  public void TurnLeft(double degrees)
-  {
-    _frontLeft.TurnLeft(degrees);
-    _frontRight.TurnLeft(degrees);
-  }
+	public void turnRight(int degrees) {
+		_frontLeft.turnRight(degrees);
+		_frontRight.turnRight(degrees);
+	}
 
-  public void TurnRight(double degrees)
-  {
-    _frontRight.TurnRight(degrees);
-    _frontLeft.TurnRight(degrees);
-  }
-
-  public void Accelerate(double kph)
-  {
-    _frontLeft.Rotate(kph);
-    _frontRight.Rotate(kph);
-  }
+	public void accelerate(int kph) {
+		_frontLeft.rotate(kph);
+		_frontRight.rotate(kph);
+	}
 }

@@ -1,13 +1,14 @@
+abstract class BaseCar {
+	public Wheel _frontLeft;
+	public Wheel _frontRight;
+	public Wheel _rearLeft;
+	public Wheel _rearRight;
+	public String Manufacturer;
+	public String log;
 
-abstract class BaseCar
-{
-  public Wheel _frontLeft;
-  public Wheel _frontRight;
-  public Wheel _rearLeft;
-  public Wheel _rearRight;
-  public String Manufacturer;
+	public abstract void turnLeft(int degrees);
 
-  public abstract void TurnLeft(double degrees);
-  public abstract void TurnRight(double degrees);
-  public abstract void Accelerate(double kmsPerHour);
+	public abstract void turnRight(int degrees);
+
+	public abstract void accelerate(int kmsPerHour);
 }

@@ -1,11 +1,11 @@
 
 abstract class AllWheelDriveCar extends Car
 {
-  public void Accelerate(double kph)
+  public void Accelerate(int kph)
   {
-    _frontLeft.Rotate(kph);
-    _frontRight.Rotate(kph);
-    _rearLeft.Rotate(kph);
-    _rearRight.Rotate(kph);
+    _frontLeft.rotate(kph);
+    _frontRight.rotate(kph);
+    _rearLeft.rotate(kph);
+    _rearRight.rotate(kph);
   }
 }
