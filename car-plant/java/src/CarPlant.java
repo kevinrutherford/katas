@@ -8,6 +8,10 @@ public class CarPlant {
 	public static Car makeToyotaCorollaSports() {
 		return new ToyotaCorollaSports();
 	}
+
+	public static Car makeMitsubishiTriton() {
+		return new MitsubishiTriton();
+	}
 }
 
 // Finally, the customer comes along and asks us to model for them a new
