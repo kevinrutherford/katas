@@ -4,7 +4,6 @@ abstract class Car {
 	public Wheel _frontRight;
 	public Wheel _rearLeft;
 	public Wheel _rearRight;
-	public String log;
 
 	public abstract String name();
 	public abstract void accelerate(int kmsPerHour);
