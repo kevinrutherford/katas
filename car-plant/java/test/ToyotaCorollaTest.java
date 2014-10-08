@@ -15,29 +15,31 @@ public class ToyotaCorollaTest {
 
 	@Test
 	public void hasTheCorrectName() {
-		corolla.turnLeft(27);
 		assertEquals("Toyota Corolla", corolla.name());
 	}
 
 	@Test
 	public void turningLeftOnlyTurnsTheFrontWheels() {
-		corolla.turnLeft(27);
-		assertEquals("front left turning left 27 degrees\n"
-				   + "front right turning left 27 degrees\n", CarPlant.LOG);
+		int degrees = TestHelpers.randomDegrees();
+		corolla.turnLeft(degrees);
+		assertEquals("front left turning left " + degrees + " degrees\n"
+				   + "front right turning left " + degrees + " degrees\n", CarPlant.LOG);
 	}
 
 	@Test
 	public void turningRightOnlyTurnsTheFrontWheels() {
-		corolla.turnRight(15);
-		assertEquals("front left turning right 15 degrees\n"
-				   + "front right turning right 15 degrees\n", CarPlant.LOG);
+		int degrees = TestHelpers.randomDegrees();
+		corolla.turnRight(degrees);
+		assertEquals("front left turning right " + degrees + " degrees\n"
+				   + "front right turning right " + degrees + " degrees\n", CarPlant.LOG);
 	}
 
 	@Test
 	public void acceleratingOnlyTurnsTheFrontWheels() {
-		corolla.accelerate(35);
-		assertEquals("front left accelerating 35 kph\n"
-				   + "front right accelerating 35 kph\n", CarPlant.LOG);
+		int speed = TestHelpers.randomSpeed();
+		corolla.accelerate(speed);
+		assertEquals("front left accelerating " + speed + " kph\n"
+				   + "front right accelerating " + speed + " kph\n", CarPlant.LOG);
 	}
 
 }
