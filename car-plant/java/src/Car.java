@@ -1,4 +1,4 @@
-abstract class Car extends BaseCar {
+abstract class Car {
 
 	public Wheel _frontLeft;
 	public Wheel _frontRight;
