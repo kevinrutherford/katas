@@ -12,6 +12,10 @@ public class CarPlant {
 	public static Car makeMitsubishiTriton() {
 		return new MitsubishiTriton();
 	}
+
+	public static Car makeSandBuggy() {
+		return new SandBuggy();
+	}
 }
 
 // Finally, the customer comes along and asks us to model for them a new
