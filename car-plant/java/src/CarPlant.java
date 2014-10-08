@@ -16,4 +16,8 @@ public class CarPlant {
 	public static Car makeSandBuggy() {
 		return new SandBuggy();
 	}
+
+	public static Car makeSandBuggyLite() {
+		return new SandBuggyLite();
+	}
 }

@@ -3,19 +3,20 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SandBuggyTest {
+
+public class SandBuggyLiteTest {
 
 	private Car buggy;
 
 	@Before
 	public void setUp() throws Exception {
 		CarPlant.LOG = "";
-		buggy = CarPlant.makeSandBuggy();
+		buggy = CarPlant.makeSandBuggyLite();
 	}
 
 	@Test
 	public void hasTheCorrectName() {
-		assertEquals("Sand Buggy", buggy.name());
+		assertEquals("Sand Buggy Lite", buggy.name());
 	}
 
 	@Test
@@ -39,12 +40,10 @@ public class SandBuggyTest {
 	}
 
 	@Test
-	public void acceleratingTurnsAllWheels() {
+	public void acceleratingTurnsOnlyTheRearWheels() {
 		int speed = TestHelpers.randomSpeed();
 		buggy.accelerate(speed);
-		assertEquals("front left accelerating " + speed + " kph\n"
-				   + "front right accelerating " + speed + " kph\n"
-				   + "rear left accelerating " + speed + " kph\n"
+		assertEquals("rear left accelerating " + speed + " kph\n"
 				   + "rear right accelerating " + speed + " kph\n", CarPlant.LOG);
 	}
 
