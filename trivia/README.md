@@ -1,4 +1,4 @@
-trivia_dojo
+trivia dojo
 ===========
 
 This repo is a copy (not a clone) of @jbrains's
